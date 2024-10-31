@@ -3,12 +3,13 @@ package com.developerSpringboot.First_Project.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "student")
+@Table(name="student")
 public class Student {
 
         // define fields
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @Column(name="id")
         private int id;
 
         @Column(name="first_name")
@@ -21,6 +22,9 @@ public class Student {
         private String email;
 
         // define constructors
+        public Student() {
+
+        }
 
         public Student(String firstName, String lastName, String email) {
                 this.firstName = firstName;
@@ -29,6 +33,7 @@ public class Student {
         }
 
         // define getters/setters
+
         public int getId() {
                 return id;
         }
@@ -60,11 +65,13 @@ public class Student {
         public void setEmail(String email) {
                 this.email = email;
         }
-        //define tosring() method
+
+
+        // define toString() method
 
         @Override
         public String toString() {
-                return "student{" +
+                return "Student{" +
                         "id=" + id +
                         ", firstName='" + firstName + '\'' +
                         ", lastName='" + lastName + '\'' +
